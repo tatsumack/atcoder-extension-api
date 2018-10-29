@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/tatsumack/atcoder-extension-api/video"
 	"google.golang.org/appengine"
 	"net/http"
 )
@@ -19,6 +20,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	http.HandleFunc("/video", video.VideoHandler)
 	http.HandleFunc("/", indexHandler)
 	appengine.Main() // Starts the server to receive requests
 }
